@@ -23,7 +23,7 @@ function App() {
         "Documentation Objective Modeling",
         "Documention Of Models",
       ],
-      current: 2,
+      current: 0,
     },
   ];
   const [step, setStep] = React.useState(0);
