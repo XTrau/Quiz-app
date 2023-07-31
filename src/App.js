@@ -2,9 +2,29 @@ import React from "react";
 
 function App() {
   const questions = [
-    { text: "Сколько спутников у Марса?", variants: [1, 3, 2], current: 2 },
-    { text: "Сколько спутников у Марса?", variants: [1, 35, 2], current: 2 },
-    { text: "Сколько спутников у Марса?", variants: [1, 3, 2], current: 2 },
+    {
+      text: "React - это ...",
+      variants: ["фреймворк", "библиотека", "редактор кода", "не знаю"],
+      current: 1,
+    },
+    {
+      text: "хук useState() нужен для",
+      variants: [
+        "того чтобы запустить сервер",
+        "корректной работы браузера",
+        "работы с состоянием компонента",
+      ],
+      current: 2,
+    },
+    {
+      text: "DOM это",
+      variants: [
+        "Document Object Model",
+        "Documentation Objective Modeling",
+        "Documention Of Models",
+      ],
+      current: 2,
+    },
   ];
   const [step, setStep] = React.useState(0);
   const [correct, setCorrect] = React.useState(0);
@@ -15,8 +35,9 @@ function App() {
       setStep(step + 1);
       if (index === question.current) setCorrect(correct + 1);
     }
-  
-    const percentage = (step / questions.length) * 100;
+
+    const percentage = ((step / questions.length) * 100).toFixed(0);
+    console.log(percentage);
     return (
       <>
         <div className="wrapper">
@@ -33,7 +54,7 @@ function App() {
       </>
     );
   }
-  
+
   function Result() {
     function restartGame() {
       setCorrect(0);
@@ -45,7 +66,8 @@ function App() {
         <div className="wrapper">
           <p className="smile">&#129395;</p>
           <h2>
-            Поздравляем, у вас {correct} из {questions.length} правильных ответов!
+            Поздравляем, у вас {correct} из {questions.length} правильных
+            ответов!
           </h2>
           <div className="restart-button">
             <button onClick={restartGame}>Пройти тест заного</button>
