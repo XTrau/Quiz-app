@@ -1,5 +1,7 @@
 import React from 'react'
+
 import Game from './components/Game'
+import Result from './components/Result'
 
 function App() {
   const questions = [
@@ -34,28 +36,6 @@ function App() {
     () => ((step / questions.length) * 100).toFixed(0),
     [step, questions.length]
   )
-
-  function Result() {
-    function restartGame() {
-      setCorrect(0)
-      setStep(0)
-    }
-
-    return (
-      <>
-        <div className='wrapper'>
-          <p className='smile'>&#129395;</p>
-          <h2>
-            Поздравляем, у вас {correct} из {questions.length} правильных
-            ответов!
-          </h2>
-          <div className='restart-button'>
-            <button onClick={restartGame}>Пройти тест заного</button>
-          </div>
-        </div>
-      </>
-    )
-  }
 
   return (
     <>

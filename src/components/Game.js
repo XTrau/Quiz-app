@@ -15,7 +15,7 @@ function Game({ step, setStep, setCorrect, question, percentage }) {
         <h2>{question.text}</h2>
         <ul>
           {question.variants.map((text, index) => (
-            <li onClick={() => selectVariant(index)}>{text}</li>
+            <li key={index} onClick={() => selectVariant(index)}>{text}</li>
           ))}
         </ul>
       </div>
